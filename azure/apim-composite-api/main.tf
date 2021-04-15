@@ -6,17 +6,18 @@ terraform {
     }
   }
 }
+
 provider "azurerm" {
   features {}
 }
 
 resource "azurerm_resource_group" "rg" {
-  name = var.rg_name
-  location = var.rg_location
+  name = "rg-${var.project_name}"
+  location = var.project_location
   tags = {
-        objective = "api composition using apim"
-        owner = "Fernando Mejia"
-        main_workload = "apim"
+        project = var.project_name
+        environment = var.project_environment
+        description = var.project_description
     }
 }
 

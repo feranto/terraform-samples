@@ -1,17 +1,17 @@
-variable "rg_name" {
-  default = "apim-composition-api"
+variable "project_name" {
+  default = "api-composition"
 }
 
-variable "rg_location" {
+variable "project_environment" {
+  default = "dev"
+}
+
+variable "project_description" {
+  default = "api composition using apim"
+}
+
+variable "project_location" {
   default = "eastus2"
-}
-
-variable "apim_name" {
-  default = "apim-composition-api"
-}
-
-variable "apim_organization" {
-  default = "feranto-org"
 }
 
 variable "apim_admin_email" {

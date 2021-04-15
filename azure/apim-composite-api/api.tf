@@ -16,9 +16,9 @@ resource "azurerm_api_management_api" "composite-api" {
 
 resource "azurerm_api_management_api_operation" "operation1" {
   operation_id        = "user-get"
-  api_name            = data.azurerm_api_management_api.example.name
-  api_management_name = data.azurerm_api_management_api.example.api_management_name
-  resource_group_name = data.azurerm_api_management_api.example.resource_group_name
+  api_name            = azurerm_api_management_api.composite-api.name
+  api_management_name = azurerm_api_management.apim.name
+  resource_group_name = azurerm_resource_group.rg.name
   display_name        = "Get User Operation"
   method              = "GET"
   url_template        = "/users/"
@@ -29,6 +29,7 @@ resource "azurerm_api_management_api_operation" "operation1" {
   }
 }
 
+/*
 resource "azurerm_api_management_api_policy" "policy1" {
   api_name            = azurerm_api_management_api.composite-api.name
   api_management_name = azurerm_api_management.apim.name
@@ -42,5 +43,4 @@ resource "azurerm_api_management_api_policy" "policy1" {
     </inbound>
   </policies>
   XML
-}
-
+}*/
