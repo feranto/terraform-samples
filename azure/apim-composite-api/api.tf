@@ -7,11 +7,10 @@ resource "azurerm_api_management_api" "composite-api" {
   path                = "api"
   protocols           = ["https"]
 
-/*
   import {
     content_format = "swagger-link-json"
     content_value  = "http://conferenceapi.azurewebsites.net/?format=json"
-  }*/
+  }
 }
 
 resource "azurerm_api_management_api_operation" "operation1" {
@@ -29,7 +28,7 @@ resource "azurerm_api_management_api_operation" "operation1" {
   }
 }
 
-/*
+
 resource "azurerm_api_management_api_policy" "policy1" {
   api_name            = azurerm_api_management_api.composite-api.name
   api_management_name = azurerm_api_management.apim.name
@@ -43,4 +42,4 @@ resource "azurerm_api_management_api_policy" "policy1" {
     </inbound>
   </policies>
   XML
-}*/
+}
